@@ -1,152 +1,175 @@
-"use client";
+'use client';
+import { motion } from 'framer-motion';
+import {  Menu, X } from "lucide-react";
+import { useState } from "react";
+import {  LinkedinIcon, MailIcon, FileText } from 'lucide-react';
+import { Instagram } from 'lucide-react';
+import { Github } from 'lucide-react';
+import { ProjectsSection } from '@/components/ProjectsSection';
+import {SkillsSection}  from '@/components/SkillsSection';
+import { SpotlightPreview } from '@/components/SpotlightPreview';
+import { FloatingDockDemo } from '@/components/FloatingDockDemo';
+import { TimelineDemo } from '@/components/TimelineDemo';
+import { TracingBeam } from "@/components/ui/tracing-beam";
+import  ImageMasking  from "@/components/ImageMasking";    
+import { AppleCardsCarouselDemo } from '@/components/AppleCardsCarouselDemo';  
+import Image from 'next/image';
+import editsImageOne from '../media-src/editsImageOne.png';
+import { BackgroundBeamsDemo } from '@/components/BackgroundBeamsDemo';
+import ClickSpark from "@/components/ui/ClickSpark/ClickSpark";
 
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Github, Linkedin, Mail, Twitter } from "lucide-react";
-import { ScrollArea } from "@/components/ui/scroll-area";
 
 export default function Home() {
-  const projects = [
-    {
-      title: "Project Alpha",
-      description: "A revolutionary AI-powered analytics platform",
-      tags: ["React", "TypeScript", "AI", "Machine Learning"],
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop"
-    },
-    {
-      title: "EcoTrack",
-      description: "Environmental monitoring system using IoT sensors",
-      tags: ["IoT", "Python", "React", "AWS"],
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2340&auto=format&fit=crop"
-    },
-    {
-      title: "HealthHub",
-      description: "Telemedicine platform for remote healthcare",
-      tags: ["Next.js", "Node.js", "MongoDB"],
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2340&auto=format&fit=crop"
-    }
-  ];
-
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <main className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background z-10" />
-        <div className="container relative z-20 px-4">
-          <div className="text-center space-y-8">
-            <Avatar className="w-32 h-32 mx-auto border-4 border-primary">
-              <AvatarImage src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2340&auto=format&fit=crop" />
-              <AvatarFallback>JD</AvatarFallback>
-            </Avatar>
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tighter">
-              John Doe
-            </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
-              Full Stack Developer & UI/UX Designer crafting beautiful digital experiences
-            </p>
-            <div className="flex gap-4 justify-center">
-              <Button variant="outline" size="icon">
-                <Github className="w-5 h-5" />
-              </Button>
-              <Button variant="outline" size="icon">
-                <Linkedin className="w-5 h-5" />
-              </Button>
-              <Button variant="outline" size="icon">
-                <Twitter className="w-5 h-5" />
-              </Button>
-              <Button variant="outline" size="icon">
-                <Mail className="w-5 h-5" />
-              </Button>
+    <>
+    <ClickSpark
+  sparkColor='#2c35ea'
+  sparkSize={10}
+  sparkRadius={15}
+  sparkCount={8}
+  duration={400}
+>
+      <main className="min-h-screen bg-black">
+      <nav className="fixed top-0 w-full z-50 bg-transparent backdrop-blur-md">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="flex items-center justify-between h-16">
+        {/* Left Side: Avatar + Portfolio Name */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          className="flex items-center space-x-3"
+        >
+          {/* Instagram-Style Avatar */}
+          <div className="relative">
+            <div className="w-[64px] h-[64px] rounded-full p-[2px] bg-gradient-to-tr from-instagram to-linkedin">
+              <Image
+                src={editsImageOne}
+                alt="Profile"
+                className="w-[58px] h-[58px] rounded-full object-cover border-2 border-black"
+              />
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Projects Section */}
-      <section className="py-20 bg-muted/50">
-        <div className="container px-4">
-          <h2 className="text-3xl font-bold mb-12 text-center">Featured Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <Card key={index} className="overflow-hidden group hover:shadow-lg transition-all">
-                <div className="aspect-video relative overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                  <p className="text-muted-foreground mb-4">{project.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag, tagIndex) => (
-                      <Badge key={tagIndex} variant="secondary">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+          {/* Portfolio Name + Availability */}
+          <div>
+            <h2 className="text-white text-1xl font-bold">S N V S KOMAL</h2>
+            <div className="flex items-center space-x-2">
+            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse shadow-[0_0_8px_#00ff00]"></span>
+            <p className="text-[12px] text-gray-300">Available for Hire</p>
+            </div>
           </div>
-        </div>
-      </section>
+        </motion.div>
 
-      {/* Skills Section */}
-      <section className="py-20">
-        <div className="container px-4">
-          <h2 className="text-3xl font-bold mb-12 text-center">Skills & Expertise</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-4">Frontend Development</h3>
-                <div className="flex flex-wrap gap-2">
-                  {["React", "Next.js", "TypeScript", "Tailwind CSS", "Redux", "Vue.js"].map((skill, index) => (
-                    <Badge key={index} variant="outline">{skill}</Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-4">Backend Development</h3>
-                <div className="flex flex-wrap gap-2">
-                  {["Node.js", "Python", "PostgreSQL", "MongoDB", "GraphQL", "AWS"].map((skill, index) => (
-                    <Badge key={index} variant="outline">{skill}</Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-4">Tools & Design</h3>
-                <div className="flex flex-wrap gap-2">
-                  {["Figma", "Adobe XD", "Git", "Docker", "Jest", "CI/CD"].map((skill, index) => (
-                    <Badge key={index} variant="outline">{skill}</Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex space-x-6">
+          <a href="#projects" className="text-gray-300 hover:text-white transition-colors">
+            Projects
+          </a>
+          <a href="#skills" className="text-gray-300 hover:text-white transition-colors">
+            Skills
+          </a>
+          <a href="#contact" className="text-gray-300 hover:text-white transition-colors">
+            Contact
+          </a>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-white">
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+      </div>
+
+      {/* Mobile Navigation */}
+      {isOpen && (
+        <div className="md:hidden flex flex-col items-center py-4 space-y-3 bg-black/80 backdrop-blur-md rounded-lg">
+          <a href="#projects" className="text-gray-300 hover:text-white transition-colors">
+            Projects
+          </a>
+          <a href="#skills" className="text-gray-300 hover:text-white transition-colors">
+            Skills
+          </a>
+          <a href="#contact" className="text-gray-300 hover:text-white transition-colors">
+            Contact
+          </a>
+        </div>
+      )}
+    </div>
+  </nav>
+
+        {/* Hero Section */}
+        <div className="relative w-full h-screen">
+          <SpotlightPreview
+            
+             
+          />
+        </div>
+       
+        <SkillsSection />
+        {/*Apple Card Carosuel effect*/}
+        <AppleCardsCarouselDemo />
+       {/*Apple Card Carosuel effect*/}
+       {/* Only enable TracingBeam on screens larger than 'sm' */}
+      <div className="hidden sm:block">
+        <TracingBeam className="max-w-5xl mx-auto px-4">
+          <TimelineDemo />
+        </TracingBeam>
+      </div>
+      {/* Only enable TracingBeam on screens larger than 'sm' */}
+      {/* Show TimelineDemo normally on mobile (without TracingBeam) */}
+      <div className="sm:hidden">
+        <TimelineDemo />
+      </div>
+
+        <ProjectsSection />
+    
+       
+        
+        <BackgroundBeamsDemo />
+
+        <div className='flex items-center justify-center'>
+          <FloatingDockDemo />
+        </div>
+        <div className='flex items-center justify-center'>
+          <ImageMasking />
+        </div>
+
+        {/* Footer */}
+        <footer className="bg-black text-white py-9 -z-1">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0">
+            
+            {/* Social Icons */}
+            <div className="flex space-x-6">
+              <a href="https://github.com/shanmukavenkat/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
+                <Github className="w-6 h-6" />
+              </a>
+              <a href="https://www.linkedin.com/in/shanmuka-s-5b3150223/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
+                <LinkedinIcon className="w-6 h-6" />
+              </a> <a href="https://instagram.com/snvs_komal/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
+                <Instagram className="w-6 h-6" />
+              </a>
+
+              
+              <a href="mailto:shanmukavenkatkomal@gmail.com" className="hover:text-gray-400">
+                <MailIcon className="w-6 h-6" />
+              </a>
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
+                <FileText className="w-6 h-6" />
+              </a>
+            </div>
+
+            {/* Footer Text */}
+            <div className="text-gray-400 text-center sm:text-right">
+              ⏳ Time waits for no one, make every second count 🚀
+            </div>
+
           </div>
-        </div>
-      </section>
+          </div>
+        </footer>
 
-      {/* Contact Section */}
-      <section className="py-20 bg-muted/50">
-        <div className="container px-4 text-center">
-          <h2 className="text-3xl font-bold mb-8">Let's Connect</h2>
-          <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
-          </p>
-          <Button size="lg" className="px-8">
-            Get In Touch
-            <Mail className="ml-2 w-4 h-4" />
-          </Button>
-        </div>
-      </section>
-    </main>
+      </main>
+      </ClickSpark>
+    </>
   );
 }
