@@ -4,9 +4,9 @@ import { motion } from "motion/react";
 
 export function WorldMapDemo() {
   return (
-    (<div className=" py-40 dark:bg-black bg-white w-full">
+    <div className=" py-40 bg-black text-neutral-200 w-full">
       <div className="max-w-7xl mx-auto text-center">
-        <p className="font-bold text-xl md:text-4xl dark:text-white text-black">
+        <p className="font-bold text-xl md:text-4xl text-white ">
           Remote{" "}
           <span className="text-neutral-400">
             {"Connectivity".split("").map((word, idx) => (
@@ -15,7 +15,8 @@ export function WorldMapDemo() {
                 className="inline-block"
                 initial={{ x: -10, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.5, delay: idx * 0.04 }}>
+                transition={{ duration: 0.5, delay: idx * 0.04 }}
+              >
                 {word}
               </motion.span>
             ))}
@@ -23,8 +24,7 @@ export function WorldMapDemo() {
         </p>
         <p className="text-sm md:text-lg text-neutral-500 max-w-2xl mx-auto py-4">
           Break free from traditional boundaries. Work from anywhere, at the
-          comfort of your own studio apartment. Perfect for Nomads and
-          Travellers.
+          comfort of your own studio apartment
         </p>
       </div>
       <WorldMap
@@ -58,8 +58,20 @@ export function WorldMapDemo() {
           {
             start: { lat: 28.6139, lng: 77.209 }, // New Delhi
             end: { lat: -1.2921, lng: 36.8219 }, // Nairobi
+          }, {
+            start: { lat: 15.9129, lng: 79.7400 }, // Andhra Pradesh (Telugu-speaking)
+            end: { lat: 17.3850, lng: 78.4867 }, // Telangana (Hyderabad - Telugu-speaking)
           },
-        ]} />
-    </div>)
+          {
+            start: { lat: 17.3850, lng: 78.4867 }, // Telangana (Hyderabad - Telugu-speaking)
+            end: { lat: 13.0827, lng: 80.2707 }, // Tamil Nadu (Chennai - Tamil-speaking)
+          },
+          {
+            start: { lat: 51.5074, lng: -0.1278 }, // London (English-speaking)
+            end: { lat: 13.0827, lng: 80.2707 }, // Tamil Nadu (Chennai - Tamil-speaking)
+          },
+        ]}
+      />
+    </div>
   );
 }

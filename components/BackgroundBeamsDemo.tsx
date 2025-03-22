@@ -6,7 +6,6 @@ import { BackgroundBeams } from "@/components/ui/background-beams";
 import { motion } from "framer-motion";
 import { BiSolidSend } from "react-icons/bi";
 
-
 export function BackgroundBeamsDemo() {
   const formRef = useRef<HTMLFormElement>(null);
   const [loading, setLoading] = useState(false);

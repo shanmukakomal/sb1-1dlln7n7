@@ -6,6 +6,7 @@ import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 import Money from "../media-src/money.png";
 import FullMoney from "../media-src/FullMoney.png";
 import Ipl from "../media-src/ipl.png";
+import ClickSpark from "@/components/ui/ClickSpark/ClickSpark";
 
 interface CardData {
   category: string;
@@ -86,11 +87,18 @@ export function AppleCardsCarouselDemo() {
   ));
 
   return (
+    <ClickSpark
+    sparkColor='#2c35ea'
+    sparkSize={10}
+    sparkRadius={15}
+    sparkCount={8}
+    duration={400}> 
     <div id="projects" className="w-full h-full py-20">
       <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-neutral-200 font-sans">
         PROJECTS
       </h2>
       <Carousel items={cards} />
     </div>
+    </ClickSpark>
   );
 }

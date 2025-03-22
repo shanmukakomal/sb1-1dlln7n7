@@ -6,6 +6,7 @@ import {  LinkedinIcon, MailIcon, FileText } from 'lucide-react';
 import { Instagram } from 'lucide-react';
 import { Github } from 'lucide-react';
 import { ProjectsSection } from '@/components/ProjectsSection';
+import { WorldMapDemo } from '@/components/WorldMapDemo';
 import {SkillsSection}  from '@/components/SkillsSection';
 import { SpotlightPreview } from '@/components/SpotlightPreview';
 import { FloatingDockDemo } from '@/components/FloatingDockDemo';
@@ -129,6 +130,9 @@ export default function Home() {
 
         <div className='flex items-center justify-center'>
           <FloatingDockDemo />
+        </div>
+        <div className='flex items-center justify-center'>
+          <WorldMapDemo />
         </div>
         <div className='flex items-center justify-center'>
           <ImageMasking />

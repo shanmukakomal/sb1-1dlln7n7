@@ -1,20 +1,19 @@
 import React from "react";
 import { FloatingDock } from "@/components/ui/floating-dock";
 import {
-  IconBrandGithub,
-  IconBrandInstagram, 
+  IconBrandGithub, 
   IconBrandLinkedin,
   IconHome,
   IconFileInvoice,
   IconFolderCode,
 } from "@tabler/icons-react";
-
+import Instagram from "@/components/ui//Instagram";
 export function FloatingDockDemo() {
   const links = [
     {
       title: "Home",
       icon: (
-        <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconHome className="h-full w-full text-sky-600" />
       ),
       href: "#",
     },
@@ -29,7 +28,7 @@ export function FloatingDockDemo() {
     {
       title: "Resume",
       icon: (
-        <IconFileInvoice className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconFileInvoice className="h-full w-full text-blue-500 dark:text-neutral-300" />
       ),
       href: "#",
     },
@@ -44,14 +43,14 @@ export function FloatingDockDemo() {
     {
       title: "Instagram",
       icon: (
-        <IconBrandInstagram className="h-full w-full text-neutral-500 dark:text-[#E4405F]" />
+       <Instagram/>
       ),
       href: "https://instagram.com/snvs_komal/",
     },
     {
       title: "GitHub",
       icon: (
-        <IconBrandGithub className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconBrandGithub className="h-full w-full text-white" />
       ),
       href: "https://github.com/shanmukavenkat/",
       
