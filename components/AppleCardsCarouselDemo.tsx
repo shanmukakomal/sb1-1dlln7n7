@@ -3,9 +3,9 @@
 import Image, { StaticImageData } from "next/image";
 import React from "react";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
-import Money from "../media-src/money.png";
+import Money from "../media-src/Money.png";
 import FullMoney from "../media-src/FullMoney.png";
-import Ipl from "../media-src/ipl.png";
+import Ipl from "../media-src/Ipl.png";
 import ClickSpark from "@/components/ui/ClickSpark/ClickSpark";
 
 interface CardData {
